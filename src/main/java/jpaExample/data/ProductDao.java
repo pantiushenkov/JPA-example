@@ -1,13 +1,11 @@
 package jpaExample.data;
 
-import jpaExample.Product.Product;
+import jpaExample.entities.Product;
 
 public interface ProductDao {
 
-    Product addProduct(Product product);
+    void addProduct(Product product);
 
-    Product getProduct(int id);
-
-    void saveProduct(Product product);
+    Product getProductByIdFromDb(int i);
 
 }

@@ -1,4 +1,4 @@
-package jpaExample.Product;
+package jpaExample.entities;
 
 import javax.persistence.*;
 

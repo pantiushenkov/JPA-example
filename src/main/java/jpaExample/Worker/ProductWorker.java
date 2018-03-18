@@ -1,16 +1,21 @@
 package jpaExample.Worker;
 
-import jpaExample.Product.Product;
+import jpaExample.entities.Product;
 import jpaExample.data.ProductDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class ProductWorker {
     @Autowired
-    ProductDao productsDao;
+    private ProductDao productDao;
 
-    public Product addProduct(Product product) {
-        product = productsDao.addProduct(product);
-        System.out.println(product.getId() + " " + product.getName() + " " + product.getQuantityKG());
-        return product;
+    public void addProduct(Product product) {
+        if ((product != null) && (product.getName() != null) && (!"".equals(product.getName())) && (product.getQuantityKG() > 0)) {
+            productDao.addProduct(product);
+            System.out.println("Product have been saved " + product.toString());
+        }
+    }
+
+    public Product getProductByIdFromDb(int i) {
+        return productDao.getProductByIdFromDb(i);
     }
 }
